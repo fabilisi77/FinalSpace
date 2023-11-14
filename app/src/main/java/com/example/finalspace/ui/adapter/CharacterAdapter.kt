@@ -38,7 +38,11 @@ class CharacterAdapter(var characterList: List<Character> = listOf()) :
                 .into(binding.imgCharacter)
 
             binding.name.text = item.name
-
+            binding.hair.text = item.hair
+            binding.gender.text = item.gender
+            binding.origin.text = item.origin
+            binding.status.text = item.status
+            binding.species.text = item.species
         }
 
     }
