@@ -1,5 +1,6 @@
 package com.example.finalspace.presentation
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.liveData
@@ -13,9 +14,13 @@ class CharacterViewModel(private val repo: CharacterRepository) : ViewModel() {
         emit(Result.Loading())
 
         try {
-            emit(Result.Success(repo.getAllCharacter()))
+            val data = repo.getAllCharacter()
+            emit(Result.Success(data))
+            Log.d("CharacterFragment", "Data received: $data")
+
 
         } catch (e: Exception) {
+            Log.e("CharacterFragment", "Error fetching data: ${e.message}", e)
             emit(Result.Failure(e))
         }
     }

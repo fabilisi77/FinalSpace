@@ -1,6 +1,6 @@
 package com.example.finalspace.repository
 
-import com.example.finalspace.data.model.character.Characters
+import com.example.finalspace.data.model.character.Character
 import com.example.finalspace.utils.Constants
 import com.google.gson.GsonBuilder
 import retrofit2.Retrofit
@@ -10,7 +10,7 @@ import retrofit2.http.GET
 interface ApiService {
 
     @GET("character/")
-    suspend fun getAllCharacters(): Characters
+    suspend fun getAllCharacters():List<Character>
 
 }
 

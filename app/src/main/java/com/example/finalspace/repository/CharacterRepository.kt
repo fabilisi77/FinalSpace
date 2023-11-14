@@ -1,7 +1,7 @@
 package com.example.finalspace.repository
 
-import com.example.finalspace.data.model.character.Characters
+import com.example.finalspace.data.model.character.Character
 
 interface CharacterRepository {
-    suspend fun getAllCharacter(): Characters
+    suspend fun getAllCharacter(): List<Character>
 }
