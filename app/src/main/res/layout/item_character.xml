@@ -9,11 +9,14 @@
     android:orientation="horizontal"
     app:cardCornerRadius="24dp"
     app:cardElevation="8dp"
-    tools:cardBackgroundColor="@color/green">
+    tools:cardBackgroundColor="@color/green"
+    tools:ignore="TextSizeCheck">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/black">
+
 
         <ImageView
             android:id="@+id/img_character"
@@ -25,12 +28,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+
         <TextView
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/img_character"
+            android:layout_marginStart="8dp"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@id/status"
+            app:layout_constraintStart_toEndOf="@id/img_character"
             app:layout_constraintTop_toTopOf="@id/img_character"
             tools:text="Lisandro" />
 
@@ -38,9 +44,10 @@
             android:id="@+id/status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/img_character"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@id/img_character"
             app:layout_constraintTop_toBottomOf="@id/name"
             tools:text="Lisandro" />
 
@@ -48,9 +55,10 @@
             android:id="@+id/species"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/img_character"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@id/img_character"
             app:layout_constraintTop_toBottomOf="@id/status"
             tools:text="Lisandro" />
 
@@ -58,9 +66,10 @@
             android:id="@+id/gender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/img_character"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@id/img_character"
             app:layout_constraintTop_toBottomOf="@id/species"
             tools:text="Lisandro" />
 
@@ -68,9 +77,10 @@
             android:id="@+id/hair"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/img_character"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@id/img_character"
             app:layout_constraintTop_toBottomOf="@id/gender"
             tools:text="Lisandro" />
 
@@ -78,11 +88,12 @@
             android:id="@+id/origin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/img_character"
-            app:layout_constraintTop_toBottomOf="@id/hair"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="@id/img_character"
+            app:layout_constraintStart_toEndOf="@id/img_character"
+            app:layout_constraintTop_toBottomOf="@id/hair"
             tools:text="Lisandro" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 

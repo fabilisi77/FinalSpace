@@ -1,15 +1,19 @@
 package com.example.finalspace.ui.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.finalspace.R
 import com.example.finalspace.core.BaseViewHolder
 import com.example.finalspace.data.model.character.Character
 import com.example.finalspace.databinding.ItemCharacterBinding
 
-class CharacterAdapter(var characterList: List<Character> = listOf()) :
+
+class CharacterAdapter(private var characterList: List<Character> = listOf()) :
     RecyclerView.Adapter<BaseViewHolder<Character>>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -19,7 +23,7 @@ class CharacterAdapter(var characterList: List<Character> = listOf()) :
             ItemCharacterBinding.inflate(LayoutInflater.from(parent.context), parent, false)
 
 
-        return CharacterViewHolder(itemBinding)
+        return CharacterViewHolder(itemBinding, parent.context)
     }
 
     override fun getItemCount(): Int = characterList.size
@@ -31,18 +35,19 @@ class CharacterAdapter(var characterList: List<Character> = listOf()) :
         }
     }
 
-    private inner class CharacterViewHolder(private val binding: ItemCharacterBinding) :
+    private inner class CharacterViewHolder(private val binding: ItemCharacterBinding ,private val context: Context) :
         BaseViewHolder<Character>(binding.root) {
+
         override fun bind(item: Character) {
             Glide.with(binding.root).load(item.img_url).centerCrop()
                 .into(binding.imgCharacter)
 
-            binding.name.text = item.name
-            binding.hair.text = item.hair
-            binding.gender.text = item.gender
-            binding.origin.text = item.origin
-            binding.status.text = item.status
-            binding.species.text = item.species
+            binding.name.text = context.getString(R.string.name,item.name)
+            binding.hair.text = context.getString(R.string.hair,item.hair)
+            binding.gender.text = context.getString(R.string.gender,item.gender)
+            binding.origin.text = context.getString(R.string.origin,item.origin)
+            binding.status.text = context.getString(R.string.status,item.status)
+            binding.species.text = context.getString(R.string.specie,item.species)
         }
 
     }
