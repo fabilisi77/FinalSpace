@@ -6,12 +6,15 @@ import com.google.gson.GsonBuilder
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 interface ApiService {
 
     @GET("character/")
     suspend fun getAllCharacters():List<Character>
 
+    @GET("character/")
+    suspend fun searchCharacters(@Query("search") query: String): List<Character>
 }
 
 object RetrofitClient {

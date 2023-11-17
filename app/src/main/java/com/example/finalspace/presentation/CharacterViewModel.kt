@@ -24,7 +24,26 @@ class CharacterViewModel(private val repo: CharacterRepository) : ViewModel() {
             emit(Result.Failure(e))
         }
     }
+
+    fun fetchCharacterByName()= liveData(Dispatchers.IO){
+        emit(Result.Loading())
+
+        try {
+            val data = repo.getAllCharacter()
+            emit(Result.Success(data))
+            Log.d("CharacterFragment", "Data received: $data")
+
+
+        } catch (e: Exception) {
+            Log.e("CharacterFragment", "Error fetching data: ${e.message}", e)
+            emit(Result.Failure(e))
+        }
+    }
 }
+
+
+
+
 
 class CharacterViewModelFactory(private val repo: CharacterRepository) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {

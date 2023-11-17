@@ -7,4 +7,8 @@ class   CharacterRepositoryImpl(private val dataSource: CharacterDataSource): Ch
     override suspend fun getAllCharacter(): List<Character> {
         return dataSource.getAllCharacter()
     }
+
+    override suspend fun searchCharacters(query: String): List<Character> {
+        return dataSource.searchCharacters(query)
+    }
 }
